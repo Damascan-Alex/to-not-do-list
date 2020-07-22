@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import s from "./App.module.css";
-import TaskList from "./components/taskList";
+import TaskList from "./components/TaskList";
+import TaskListContainer from "./components/TaskListContainer";
 
 
 
@@ -26,7 +27,7 @@ class App extends React.Component {
           <h1>TO NOT DO LIST</h1>
           <p>Procastination level {this.state.procastinationIndex}</p>
         </div>
-        <TaskList state= {this.state} />              
+        <TaskListContainer />              
       </div>
     );
   }
