@@ -4,8 +4,8 @@ const CREATE_TASK = 'notDoTask/newTask/CREATE_TASK'
 
 let initialState= {
     todayTasks: [
-        { task: "Create Task Reducer", id: 354, importance: 1, done: false},
-        { task: "Test fuck yeah ! is working", id: 89, importance: 4 , done: false},
+        { task: "Create Task Reducer", id: 354, importance: 1, done: true},
+        { task: "Test fuck yeah ! is working", id: 89, importance: 4 , done: true},
         { task: "Add new task functionality", id: 79, importance: 3 , done: false },
         { task: "Added need form control", id: 79, importance:  3 , done: false },
         { task: "Make initial template", id: 79, importance: 3, done: true },

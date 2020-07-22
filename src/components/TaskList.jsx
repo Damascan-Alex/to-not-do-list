@@ -15,7 +15,7 @@ const TaskList = (props) => {
     <div>
       <div className={s.taskList}>
         {props.taskDivs.todayTasks.map((tsk) => (
-          <Task task={tsk.task} />
+          <Task task={tsk.task} done={tsk.done} />
         ))}
 
       <AddTaskReduxForm onSubmit={createNewTaskX} />{" "}
@@ -38,7 +38,7 @@ const AddTaskForm = ({ handleSubmit }) => {
         <Field
           component='textarea'
           name="addNewTask"
-          placeholder="Add new task"
+          placeholder="Add new task bro"
        
         />
       </div>
