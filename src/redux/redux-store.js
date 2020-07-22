@@ -1,10 +1,11 @@
 import {combineReducers, createStore} from "redux";
 import taskReducer from './task-reducer'
+import { reducer as formReducer } from 'redux-form'
 
 let reducers = combineReducers({
     taskDivs: taskReducer,
-    //form: formReducer - need to create it first 
-})
+    form: formReducer
+});
 
 const store = createStore(reducers)
 
