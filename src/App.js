@@ -1,7 +1,8 @@
 import React, { memo } from "react";
 import s from "./App.module.css";
-import Task from "./components/task/task";
-import NewTask from "./components/newTask/newTask";
+import TaskList from "./components/taskList";
+
+
 
 class App extends React.Component {
   state = {
@@ -25,18 +26,7 @@ class App extends React.Component {
           <h1>TO NOT DO LIST</h1>
           <p>Procastination level {this.state.procastinationIndex}</p>
         </div>
-
-        <div className={s.taskList}>
-          {this.state.todayTasks.map((tsk) => (
-            <Task task={tsk.task} />
-          ))}
-        <NewTask />  
-        </div>
-
-        <div className={s.tomarowLand}>
-          <hr />
-          <h5>Tomarowland</h5>
-        </div>
+        <TaskList state= {this.state} />              
       </div>
     );
   }

@@ -1,0 +1,11 @@
+.taskList {
+  background-color: burlywood;
+  min-height: 300px;
+  padding: 20px;
+}
+
+.tomarowLand {
+  background-color: cadetblue;
+  text-align: center;
+  min-height: 150px;
+}
