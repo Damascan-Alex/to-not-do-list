@@ -2,7 +2,7 @@
 
 import TaskList from "./TaskList";
 import { connect } from "react-redux";
-import { newTaskCreator } from "../redux/task-reducer";
+import { newTaskCreator, deleteTaskCreator } from "../redux/task-reducer";
 
 let mapStateToProps = (state) => {
   return {
@@ -14,7 +14,13 @@ let mapDispatchToProps = (dispatch) => {
     // updateNewMessageBody: (body) => {dispatch(updateNewMessageBodyCreator(body))},
     createNewTask: (NewTask) => {
       dispatch(newTaskCreator(NewTask));
-    }, // now send mesage will accept paramiter
+    }, 
+    deleteTask: (id) => {
+      dispatch(deleteTaskCreator(id));
+    }, 
+    
+    
+    // now send mesage will accept paramiter
   };
 };
 

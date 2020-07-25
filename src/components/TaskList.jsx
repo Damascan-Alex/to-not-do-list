@@ -9,12 +9,14 @@ const TaskList = (props) => {
   let createNewTaskX = (values) => {
     createNewTask(values.addNewTask); // values same as Field names
   };
-
+ /* let handleDelete = (id) => {
+   return(alert(id))
+ } */
   return (
     <div>
       <div className={s.taskList}>
         {props.taskDivs.todayTasks.map((tsk) => (
-          <Task task={tsk.task} done={tsk.done} importance={tsk.importance} />
+          <Task task={tsk.task} done={tsk.done} importance={tsk.importance} id={tsk.id} handleDelete={props.deleteTask} />
         ))}
         <AddTaskReduxForm onSubmit={createNewTaskX} />{" "}
       </div>
