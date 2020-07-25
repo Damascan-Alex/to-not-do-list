@@ -11,6 +11,10 @@ class App extends React.Component {
     procastinationIndex: 45,
   };
 
+  onDragEnd = (result) => {
+    //Todo render our column
+};
+
   render() {
     return (
       <div className={s.main}>
