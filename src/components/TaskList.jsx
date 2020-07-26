@@ -7,11 +7,10 @@ import { reduxForm, Field } from "redux-form";
 const TaskList = (props) => {
   const { createNewTask } = props;
   let createNewTaskX = (values) => {
+    debugger
     createNewTask(values.addNewTask); // values same as Field names
   };
- /* let handleDelete = (id) => {
-   return(alert(id))
- } */
+
   return (
     <div>
       <div className={s.taskList}>

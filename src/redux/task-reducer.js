@@ -13,23 +13,30 @@ let initialState= {
         { task: "Add new task functionality", id: 6, importance: 3 , done: false },
         { task: "Mark task as done and not done ", id: 7, importance: 5, done: true },
         { task: "Drag and drop functionality-stuck- do it later", id: 8, importance: 16, done: false },
-        { task: "Delete-Functionality", id: 9, importance: 16, done: false },
+        { task: "Delete-Functionality", id: 9, importance: 16, done: true },
+        { task: "Randmo-ID and add reduxdeTool", id: 10, importance: 16, done: true },
+        { task: "Add new text on click", id: 11, importance: 16, done: false },
+        { task: "Edit Text on double click", id: 12, importance: 16, done: false },
       ],
     tomarowTask: [],
 }
+
+/* const IDrandom = Math.floor(Math.random()*100) */
+
 
 const taskReducer = (state = initialState, action) => {
     switch (action.type) {
         case CREATE_TASK:
             let newTask = action.addNewTask;
+            const IDrandom = Math.floor(Math.random()*1000) //generate random ID
             return {
                 ...state,
-                todayTasks: [...state.todayTasks, {task: newTask, id: 344, importance: 1, done: false}]
+                todayTasks: [...state.todayTasks, {task: newTask, id: {IDrandom}, importance: 1, done: false}]
             };
         case DELETE_TASK:
 
             const newList = state.todayTasks.filter((c) => c.id !== action.id);
-            debugger
+            
             return {
                 ...state,
                 todayTasks: newList

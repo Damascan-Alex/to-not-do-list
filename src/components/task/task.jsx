@@ -4,6 +4,7 @@ import React from 'react';
 import s from './task.module.css'
 
 const Task = (props) => {
+  
 return <div className={`${s.main} ${props.done ? s.done: ''}`}><TaskImportance importance={props.importance} /> {props.task}
 <button onClick={() => props.handleDelete(props.id)}>Delete</button>
 </div>
@@ -13,7 +14,7 @@ const TaskImportance = (props) => {
     const TaskColor = {
         display: 'inline-block',
         backgroundColor: `hsl(${props.importance*10}, 100%, 50%)`,
-        'border-radius': '50%',
+        borderRadius: '50%',
         width:'10px',
         height: '10px'
 
