@@ -15,7 +15,7 @@ const TaskList = (props) => {
     <div>
       <div className={s.taskList}>
         {props.taskDivs.todayTasks.map((tsk) => (
-          <Task task={tsk.task} done={tsk.done} importance={tsk.importance} id={tsk.id} handleDelete={props.deleteTask} />
+          <Task state ={tsk} editTask={props.editTask} task={tsk.task} done={tsk.done} importance={tsk.importance} id={tsk.id} handleDelete={props.deleteTask} />
         ))}
         <AddTaskReduxForm onSubmit={createNewTaskX} />{" "}
       </div>
