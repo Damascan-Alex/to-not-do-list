@@ -22,7 +22,7 @@ let initialState= {
     tomarowTask: [],
 }
 
-/* const IDrandom = Math.floor(Math.random()*100) */
+
 
 
 const taskReducer = (state = initialState, action) => {
@@ -40,12 +40,16 @@ const taskReducer = (state = initialState, action) => {
                 ...state,
                 todayTasks: newList
             }
-        case EDIT_TASK:  // here need to find a way to delete ask by index, we send in 
-        const IDrando = Math.floor(Math.random()*1000)
-        return {
-                ...state,
-                todayTasks: [...state.todayTasks, {task: action.id, id: {IDrando}, importance: 1, done: false}]
-            }
+        case EDIT_TASK: 
+            return {
+                ...state, // we copy state 
+                todayTasks: state.todayTasks.map(tsk => {   // use map to create copy
+                    if(tsk.id === action.id) { // find the object with specific ID
+                        return {...tsk, task: action.task} // copy object and change one of his func
+                    }
+                    return tsk
+                }),
+        }
         default:
             return state;
 
@@ -57,21 +61,4 @@ export const deleteTaskCreator = (id) => ({type: DELETE_TASK, id})
 export const editTaskCreator = (task, id) => ({type: EDIT_TASK, task, id})
 
 export default taskReducer
-// try this 
-/* handleDelete = (counderID) => {
-    const counters = this.state.counters.filter((c) => c.id !== counderID);
-    this.setState({ counters: counters });
-  }; */
 
-/*   handleDelete = (movie) => {
-    const movies = this.state.movies.filter((m) => m._id !== movie._id);
-    this.setState({ movies });
-  }
-
-  handleLike = (m) => {
-    const movies = [...this.state.movies]  // clone movies
-    const index = movies.indexOf(m); // find the number in array of the income object
-    movies[index] = {...movies[index]}; // copy all the proprieties for target object
-    movies[index].liked = !movies[index].liked // we togle the value of liked
-    this.setState({movies}) // we ste state and pass new movies array
-    } */
