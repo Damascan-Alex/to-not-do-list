@@ -9,3 +9,11 @@
   text-align: center;
   min-height: 150px;
 }
+
+.listScrool {
+  overflow-y: scroll; 
+  height:400px;
+
+}
+
+
