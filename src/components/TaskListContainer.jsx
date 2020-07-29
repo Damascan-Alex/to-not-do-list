@@ -11,7 +11,6 @@ let mapStateToProps = (state) => {
 };
 let mapDispatchToProps = (dispatch) => {
   return {
-    // updateNewMessageBody: (body) => {dispatch(updateNewMessageBodyCreator(body))},
     createNewTask: (NewTask) => {
       dispatch(newTaskCreator(NewTask));
     }, 
@@ -21,9 +20,7 @@ let mapDispatchToProps = (dispatch) => {
 
     editTask: (task, id) => {
       dispatch(editTaskCreator(task, id))
-    }, 
-    
-    // now send mesage will accept paramiter
+    },     
   };
 };
 

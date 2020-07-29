@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import s from './task.module.css'
+import ImportanceRange from '../rangeSlider';
 
 const Task = (props) => {
-  
+  debugger
 let [editMode, setEditMode] = useState(false);
 let [task, setTask] = useState(props.task);
 
@@ -41,7 +42,7 @@ return (
       onChange={onTaskChange}
       onBlur={deactivateEditMode}
       autoFocus={true}
-      value={task} // mush show task text on double click
+      value={task} 
     ></input>
   </div>
 )}
@@ -62,7 +63,3 @@ const TaskImportance = (props) => {
     return <div style={TaskColor} ></div>
 }
 export default Task
-
-//{`banner ${active ? "active" : ""}`}
-
-//className={`${s.main} ${props.done ? s.done: ''}`}

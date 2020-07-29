@@ -1,18 +1,13 @@
 import React from 'react';
 
 class ImportanceRange extends React.Component {
-/*   constructor(props) {
-    super(props);
-    //this.updateRange = this.updateRange.bind(this);
-  } */
 
   updateRange = (e) => {
     // this balue can export
-    /* this.props.updateRange(e.target.value); */
+    // this.props.onImportance(e.target.value);
   }
 
   render() {
-    // console.log(this.props);
     const { range } = this.props;
     return (
       <div>
@@ -30,26 +25,5 @@ class ImportanceRange extends React.Component {
     );
   }
 }
-
-/* class Range2 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      rangeVal: 0,
-    };
-    this.updateRange = this.updateRange.bind(this);
-  }
-
-  updateRange(val) {
-    this.setState({
-      rangeVal: val,
-    });
-  }
-
-  render() {
-    const { rangeVal } = this.state;
-    return <Range range={rangeVal} updateRange={this.updateRange} />;
-  }
-} */
 
 export default ImportanceRange

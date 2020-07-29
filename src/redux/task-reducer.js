@@ -36,7 +36,7 @@ const taskReducer = (state = initialState, action) => {
             const IDrandom = Math.floor(Math.random()*1000) //generate random ID
             return {
                 ...state,
-                todayTasks: [...state.todayTasks, {task: newTask, id: {IDrandom}, importance: 1, done: false}]
+                todayTasks: [...state.todayTasks, {task: newTask, id: IDrandom, importance: 1, done: false}]
             };
         case DELETE_TASK:
             const newList = state.todayTasks.filter((c) => c.id !== action.id);   
