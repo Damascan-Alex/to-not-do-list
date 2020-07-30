@@ -3,8 +3,8 @@ import React from 'react';
 class ImportanceRange extends React.Component {
 
   updateRange = (e) => {
-    // this balue can export
-    // this.props.onImportance(e.target.value);
+    
+    this.props.createColor(e.target.value);
   }
 
   render() {

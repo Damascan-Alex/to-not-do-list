@@ -5,7 +5,7 @@ import s from './task.module.css'
 import ImportanceRange from '../rangeSlider';
 
 const Task = (props) => {
-  debugger
+  
 let [editMode, setEditMode] = useState(false);
 let [task, setTask] = useState(props.task);
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
 
+
 const AddTaskForm = ({ handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
@@ -12,6 +13,7 @@ const AddTaskForm = ({ handleSubmit }) => {
           placeholder="Add new task bro"
         />
         <button type="submit">Add</button>
+     
       </div>
     </form>
   );

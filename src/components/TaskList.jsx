@@ -8,6 +8,16 @@ import ImportanceRange from "./rangeSlider";
 
 const TaskList = (props) => {
   
+    // this junk have to mix 2 value in one, first is Task from redux, 2nd is importance
+    // const { createNewTask } = props;
+    // let createColor = (range) => {
+    //   console.log(range)
+    // }
+    // let createNewTaskX = (values) => {   
+    //   console.log(values.addNewTask)
+    //   createNewTask(values.addNewTask); // values same as Field names
+    // };
+
   return (
     <div>
       <div className={s.taskList}>
@@ -26,7 +36,8 @@ const TaskList = (props) => {
         </div>
        
         <AddTaskReduxForm  onSubmit={(values) => {props.createNewTask(values.addNewTask)}} />{" "}
-        <ImportanceRange />
+        {/* <AddTaskReduxForm  onSubmit={createNewTaskX} />{" "} */}
+        {/* <ImportanceRange createColor = {createColor} /> */}
 
       </div>
 
