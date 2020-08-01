@@ -11,8 +11,8 @@ let mapStateToProps = (state) => {
 };
 let mapDispatchToProps = (dispatch) => {
   return {
-    createNewTask: (NewTask) => {
-      dispatch(newTaskCreator(NewTask));
+    createNewTask: (NewTask, importance) => {
+      dispatch(newTaskCreator(NewTask, importance));
     }, 
     deleteTask: (id) => {
       dispatch(deleteTaskCreator(id));

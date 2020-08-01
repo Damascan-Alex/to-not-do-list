@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Task from "./task/task";
 import s from "./taskList.module.css";
 import AddTaskReduxForm from './newTask'
-import ImportanceRange from "./rangeSlider";
+import ImportanceRange from "./ImportanceRange";
 
 const TaskList = (props) => {
   
@@ -35,7 +35,9 @@ const TaskList = (props) => {
         ))}
         </div>
        
-        <AddTaskReduxForm  onSubmit={(values) => {props.createNewTask(values.addNewTask)}} />{" "}
+        <AddTaskReduxForm  onSubmit={(values) => {
+          debugger
+          props.createNewTask(values.addNewTask, values.taskImportance)}} />{" "}
         {/* <AddTaskReduxForm  onSubmit={createNewTaskX} />{" "} */}
         {/* <ImportanceRange createColor = {createColor} /> */}
 

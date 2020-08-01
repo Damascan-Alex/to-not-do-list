@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import s from './task.module.css'
-import ImportanceRange from '../rangeSlider';
+import ImportanceRange from '../ImportanceRange';
 
 const Task = (props) => {
   

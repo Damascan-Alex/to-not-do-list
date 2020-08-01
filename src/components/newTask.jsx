@@ -12,6 +12,11 @@ const AddTaskForm = ({ handleSubmit }) => {
           name="addNewTask"
           placeholder="Add new task bro"
         />
+        <Field
+          component='input'
+          name='taskImportance'
+          placeholder='Range task importance'
+        />
         <button type="submit">Add</button>
      
       </div>

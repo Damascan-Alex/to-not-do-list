@@ -35,11 +35,13 @@ let initialState= {
 const taskReducer = (state = initialState, action) => {
     switch (action.type) {
         case CREATE_TASK:
+            debugger
             let newTask = action.addNewTask;
+            let taskImportance = parseInt(action.importance)
             const IDrandom = Math.floor(Math.random()*1000) //generate random ID
             return {
                 ...state,
-                todayTasks: [...state.todayTasks, {task: newTask, id: IDrandom, importance: 1, done: false}]
+                todayTasks: [...state.todayTasks, {task: newTask, id: IDrandom, importance: taskImportance, done: false}]
             };
         case DELETE_TASK:
             const newList = state.todayTasks.filter((c) => c.id !== action.id);   
@@ -63,7 +65,7 @@ const taskReducer = (state = initialState, action) => {
     }
 }
 
-export const newTaskCreator = (addNewTask) => ({type: CREATE_TASK, addNewTask})
+export const newTaskCreator = (addNewTask,importance ) => ({type: CREATE_TASK, addNewTask, importance})
 export const deleteTaskCreator = (id) => ({type: DELETE_TASK, id})
 export const editTaskCreator = (task, id) => ({type: EDIT_TASK, task, id})
 
