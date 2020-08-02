@@ -4,7 +4,7 @@ class ImportanceRange extends React.Component {
 
   updateRange = (e) => {
     
-    this.props.createColor(e.target.value);
+    console.log(e.target.value);
   }
 
   render() {

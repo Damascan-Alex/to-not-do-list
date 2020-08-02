@@ -1,23 +1,12 @@
 //Task list render all task including those for next day
 
 import React, { useState, useEffect } from "react";
-import Task from "./task/task";
+import Task from "./task/Task";
 import s from "./taskList.module.css";
-import AddTaskReduxForm from './newTask'
-import ImportanceRange from "./ImportanceRange";
+import AddTaskReduxForm from './NewTask'
 
 const TaskList = (props) => {
   
-    // this junk have to mix 2 value in one, first is Task from redux, 2nd is importance
-    // const { createNewTask } = props;
-    // let createColor = (range) => {
-    //   console.log(range)
-    // }
-    // let createNewTaskX = (values) => {   
-    //   console.log(values.addNewTask)
-    //   createNewTask(values.addNewTask); // values same as Field names
-    // };
-
   return (
     <div>
       <div className={s.taskList}>
@@ -38,9 +27,6 @@ const TaskList = (props) => {
         <AddTaskReduxForm  onSubmit={(values) => {
           debugger
           props.createNewTask(values.addNewTask, values.taskImportance)}} />{" "}
-        {/* <AddTaskReduxForm  onSubmit={createNewTaskX} />{" "} */}
-        {/* <ImportanceRange createColor = {createColor} /> */}
-
       </div>
 
       <div className={s.tomarowLand}>
