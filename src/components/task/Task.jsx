@@ -8,10 +8,10 @@ const Task = (props) => {
   const [editMode, setEditMode] = useState(false);
   const [task, setTask] = useState(props.task);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     setTask(props.task);
   }, [props.task]);
-
+ */
   const activateEditMode = () => {
     setEditMode(true);
   };
@@ -19,12 +19,6 @@ const Task = (props) => {
   const deactivateEditMode = () => {
     setEditMode(false);
     props.editTask(task, props.id); // can send each task id to state.
-  };
-
-  const onTaskChange = (e) => {
-    // this will send only data what we input but not object
-
-    setTask(e.currentTarget.value);
   };
 
   return (
@@ -41,7 +35,9 @@ const Task = (props) => {
       {editMode && (
         <div className={s.main}>
           <input
-            onChange={onTaskChange}
+            onChange={(e) => {
+              setTask(e.currentTarget.value);
+            }}
             onBlur={deactivateEditMode}
             autoFocus={true}
             value={task}
@@ -53,6 +49,20 @@ const Task = (props) => {
 };
 // this compoent takes care  of the incoming props and generate necesary color.
 const TaskImportance = (props) => {
+  const [editMode, setEditMode] = useState(false);
+  const [importance, setImportance] = useState(props.importance);
+  const shitCode = {
+    value: importance,
+  };
+  const activateEditMode = () => {
+    setEditMode(true);
+  };
+
+  const deactivateEditMode = () => {
+    setEditMode(false);
+    props.editImportance(importance, props.id);
+  };
+
   const TaskColor = {
     display: "inline-block",
     backgroundColor: `hsl(${(16 - props.importance) * 10}, 100%, 50%)`, //its a bit hardcoded here with value 16
@@ -61,17 +71,27 @@ const TaskImportance = (props) => {
     height: "10px",
   };
 
-  let show = false;
   return (
     <div>
       <div
-        onClick={() => {
-          show = true;
-          alert("Have to show Importance range");
-        }}
+        onClick={activateEditMode}
+        onBlur={deactivateEditMode}
+        autoFocus={true}
         style={TaskColor}
       ></div>
-      {show && <ImportanceRange />}
+      {editMode && (
+        <div>
+          This edit mode
+          {/* Importance take value from state from props, need to find 
+          a way to conect it when want to change the value  */}
+          <ImportanceRange
+            input={shitCode}
+            onChange={(e) => {
+              setImportance(e);
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 };

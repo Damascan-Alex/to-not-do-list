@@ -6,6 +6,7 @@ import {
   newTaskCreator,
   deleteTaskCreator,
   editTaskCreator,
+  editImportanceCreator,
 } from "../redux/task-reducer";
 
 const mapStateToProps = (state) => {
@@ -24,6 +25,10 @@ const mapDispatchToProps = (dispatch) => {
 
     editTask: (task, id) => {
       dispatch(editTaskCreator(task, id));
+    },
+
+    editImportance: (importance, id) => {
+      dispatch(editImportanceCreator(importance, id));
     },
   };
 };

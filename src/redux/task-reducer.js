@@ -3,6 +3,7 @@
 const CREATE_TASK = "notDoTask/newTask/CREATE_TASK";
 const DELETE_TASK = "notDoTask/Task/DELETE_TASK";
 const EDIT_TASK = "notDoTask/Task/EDIT_TASK";
+const EDIT_IMPORTANCE = "notDoTask/Task/EDIT_IMPORTANCE";
 
 let initialState = {
   todayTasks: [
@@ -105,6 +106,19 @@ const taskReducer = (state = initialState, action) => {
           return tsk;
         }),
       };
+    case EDIT_IMPORTANCE:
+      debugger;
+      return {
+        ...state, // we copy state
+        todayTasks: state.todayTasks.map((tsk) => {
+          // use map to create copy
+          if (tsk.id === action.id) {
+            // find the object with specific ID
+            return { ...tsk, importance: action.importance }; // copy object and change one of his func
+          }
+          return tsk;
+        }),
+      };
     default:
       return state;
   }
@@ -117,5 +131,10 @@ export const newTaskCreator = (addNewTask, importance) => ({
 });
 export const deleteTaskCreator = (id) => ({ type: DELETE_TASK, id });
 export const editTaskCreator = (task, id) => ({ type: EDIT_TASK, task, id });
+export const editImportanceCreator = (importance, id) => ({
+  type: EDIT_IMPORTANCE,
+  importance,
+  id,
+});
 
 export default taskReducer;

@@ -16,6 +16,7 @@ const TaskList = (props) => {
               task={tsk.task}
               done={tsk.done}
               importance={tsk.importance}
+              editImportance={props.editImportance}
               id={tsk.id}
               handleDelete={props.deleteTask}
             />
