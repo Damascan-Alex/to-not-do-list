@@ -1,26 +1,30 @@
 // this conect state from redux
 
-import TaskList from "./TaskList";
 import { connect } from "react-redux";
-import { newTaskCreator, deleteTaskCreator, editTaskCreator } from "../redux/task-reducer";
+import TaskList from "./TaskList";
+import {
+  newTaskCreator,
+  deleteTaskCreator,
+  editTaskCreator,
+} from "../redux/task-reducer";
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
     taskDivs: state.taskDivs,
   };
 };
-let mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     createNewTask: (NewTask, importance) => {
       dispatch(newTaskCreator(NewTask, importance));
-    }, 
+    },
     deleteTask: (id) => {
       dispatch(deleteTaskCreator(id));
-    }, 
+    },
 
     editTask: (task, id) => {
-      dispatch(editTaskCreator(task, id))
-    },     
+      dispatch(editTaskCreator(task, id));
+    },
   };
 };
 

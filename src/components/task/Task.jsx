@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import s from "./task.module.css";
+import ImportanceRange from "../ImportanceRange";
 
 const Task = (props) => {
   const [editMode, setEditMode] = useState(false);
@@ -59,6 +60,19 @@ const TaskImportance = (props) => {
     width: "10px",
     height: "10px",
   };
-  return <div style={TaskColor}></div>;
+
+  let show = false;
+  return (
+    <div>
+      <div
+        onClick={() => {
+          show = true;
+          alert("Have to show Importance range");
+        }}
+        style={TaskColor}
+      ></div>
+      {show && <ImportanceRange />}
+    </div>
+  );
 };
 export default Task;
