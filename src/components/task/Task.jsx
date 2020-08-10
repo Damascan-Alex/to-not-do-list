@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import s from "./task.module.css";
-import ImportanceRange from "../ImportanceRange";
 
 const Task = (props) => {
+  debugger;
   const [editMode, setEditMode] = useState(false);
   const [task, setTask] = useState(props.task);
 
@@ -28,7 +28,12 @@ const Task = (props) => {
           onDoubleClick={activateEditMode}
           className={`${s.main} ${props.done ? s.done : ""}`}
         >
-          <TaskImportance importance={props.importance} /> {props.task}
+          <TaskImportance
+            importance={props.importance}
+            editImportance={props.editImportance}
+            id={props.id}
+          />{" "}
+          {props.task}
           <button onClick={() => props.handleDelete(props.id)}>Delete</button>
         </div>
       )}
@@ -49,11 +54,10 @@ const Task = (props) => {
 };
 // this compoent takes care  of the incoming props and generate necesary color.
 const TaskImportance = (props) => {
+  debugger;
   const [editMode, setEditMode] = useState(false);
   const [importance, setImportance] = useState(props.importance);
-  const shitCode = {
-    value: importance,
-  };
+
   const activateEditMode = () => {
     setEditMode(true);
   };
@@ -73,23 +77,24 @@ const TaskImportance = (props) => {
 
   return (
     <div>
-      <div
-        onClick={activateEditMode}
-        onBlur={deactivateEditMode}
-        autoFocus={true}
-        style={TaskColor}
-      ></div>
+      <div onClick={activateEditMode} style={TaskColor}></div>
       {editMode && (
         <div>
-          This edit mode
-          {/* Importance take value from state from props, need to find 
-          a way to conect it when want to change the value  */}
-          <ImportanceRange
-            input={shitCode}
+          {/* This is separate iput range, special for edit mode */}
+          <input
+            id='range'
+            type='range'
+            value={importance}
+            min='0'
+            max='16'
+            step='1'
             onChange={(e) => {
-              setImportance(e);
+              setImportance(e.currentTarget.value);
             }}
+            onBlur={deactivateEditMode}
+            autoFocus={true}
           />
+          <span id='output'>{importance}</span>
         </div>
       )}
     </div>

@@ -1,3 +1,5 @@
+// This importance range is linked to reduxform NEWTASK it accept only values like this
+// props.input.value or props.input.onChange
 import React from "react";
 const ImportanceRange = (props) => {
   const {
