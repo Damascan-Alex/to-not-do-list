@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import s from "./task.module.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Task = (props) => {
   debugger;
@@ -22,19 +23,31 @@ const Task = (props) => {
   };
 
   return (
-    <div>
+    <div className='container'>
       {!editMode && (
         <div
           onDoubleClick={activateEditMode}
-          className={`${s.main} ${props.done ? s.done : ""}`}
+          className={`row ${s.main} ${props.done ? s.done : ""}`}
         >
           <TaskImportance
+            className='col'
             importance={props.importance}
             editImportance={props.editImportance}
             id={props.id}
           />{" "}
-          {props.task}
-          <button onClick={() => props.handleDelete(props.id)}>Delete</button>
+          <div className='col'>{props.task}</div>
+          <button
+            className='btn btn-success'
+            onClick={() => props.handleDone(props.id)}
+          >
+            Done
+          </button>
+          <button
+            className='btn btn-warning'
+            onClick={() => props.handleDelete(props.id)}
+          >
+            Delete
+          </button>
         </div>
       )}
       {editMode && (
@@ -52,9 +65,7 @@ const Task = (props) => {
     </div>
   );
 };
-// this compoent takes care  of the incoming props and generate necesary color.
 const TaskImportance = (props) => {
-  debugger;
   const [editMode, setEditMode] = useState(false);
   const [importance, setImportance] = useState(props.importance);
 

@@ -1,11 +1,9 @@
 .main {
-    background-color: rebeccapurple;
-    color: seashell;
-    margin: 10px 0;
-    padding: 10px;
+  color: seashell;
+  margin: 5px 0;
+  padding: 5px 0;
 }
 
-.done {
-   text-decoration-line: line-through;
+.done div {
+  text-decoration-line: line-through;
 }
-

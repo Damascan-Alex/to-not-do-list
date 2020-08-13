@@ -7,6 +7,7 @@ import {
   deleteTaskCreator,
   editTaskCreator,
   editImportanceCreator,
+  doneTaskCreator,
 } from "../redux/task-reducer";
 
 const mapStateToProps = (state) => {
@@ -21,6 +22,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     deleteTask: (id) => {
       dispatch(deleteTaskCreator(id));
+    },
+    doneTask: (id) => {
+      dispatch(doneTaskCreator(id)); // crearte action
     },
 
     editTask: (task, id) => {

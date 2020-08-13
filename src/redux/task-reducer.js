@@ -2,6 +2,7 @@
 
 const CREATE_TASK = "notDoTask/newTask/CREATE_TASK";
 const DELETE_TASK = "notDoTask/Task/DELETE_TASK";
+const DONE_TASK = "notDoTask/Task/DONE_TASK";
 const EDIT_TASK = "notDoTask/Task/EDIT_TASK";
 const EDIT_IMPORTANCE = "notDoTask/Task/EDIT_IMPORTANCE";
 
@@ -44,7 +45,7 @@ let initialState = {
       task: "Chnage the importance on double click on color - Hold",
       id: "14",
       importance: 10,
-      done: false,
+      done: true,
     },
     {
       task: "Scrool up and down fuctionality",
@@ -58,13 +59,25 @@ let initialState = {
       importance: 10,
       done: false,
     },
+    {
+      task: "Edit importance on double click",
+      id: "17",
+      importance: 10,
+      done: true,
+    },
+    {
+      task: "Beautify project with bootstrap",
+      id: "18",
+      importance: 1,
+      done: true,
+    },
   ],
   tomarowTask: [
     {
       task: "Implement drag-and drop func",
       id: "17",
       importance: 10,
-      done: false,
+      done: true,
     },
   ],
 };
@@ -83,7 +96,7 @@ const taskReducer = (state = initialState, action) => {
           {
             task: newTask,
             id: IDrandom,
-            importance: taskImportance,
+            importance: taskImportance || 8,
             done: false,
           },
         ],
@@ -119,6 +132,19 @@ const taskReducer = (state = initialState, action) => {
           return tsk;
         }),
       };
+    case DONE_TASK:
+      debugger;
+      return {
+        ...state, // we copy state
+        todayTasks: state.todayTasks.map((tsk) => {
+          let tongleDone = !tsk.done;
+          if (tsk.id === action.id) {
+            // find the object with specific ID
+            return { ...tsk, done: tongleDone }; // copy object and change one of his func
+          }
+          return tsk;
+        }),
+      };
     default:
       return state;
   }
@@ -130,6 +156,7 @@ export const newTaskCreator = (addNewTask, importance) => ({
   importance,
 });
 export const deleteTaskCreator = (id) => ({ type: DELETE_TASK, id });
+export const doneTaskCreator = (id) => ({ type: DONE_TASK, id });
 export const editTaskCreator = (task, id) => ({ type: EDIT_TASK, task, id });
 export const editImportanceCreator = (importance, id) => ({
   type: EDIT_IMPORTANCE,

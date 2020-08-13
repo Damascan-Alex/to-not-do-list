@@ -2,14 +2,13 @@
 
 import React from "react";
 import Task from "./task/Task";
-import s from "./taskList.module.css";
 import AddTaskReduxForm from "./NewTask";
 
 const TaskList = (props) => {
   return (
     <div>
-      <div className={s.taskList}>
-        <div className={s.listScrool}>
+      <div>
+        <div>
           {props.taskDivs.todayTasks.map((tsk) => (
             <Task
               editTask={props.editTask}
@@ -19,6 +18,7 @@ const TaskList = (props) => {
               editImportance={props.editImportance}
               id={tsk.id}
               handleDelete={props.deleteTask}
+              handleDone={props.doneTask}
             />
           ))}
         </div>
@@ -30,7 +30,7 @@ const TaskList = (props) => {
         />{" "}
       </div>
 
-      <div className={s.tomarowLand}>
+      <div>
         <hr />
         <h5>Tomarowland</h5>
       </div>
